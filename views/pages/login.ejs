@@ -1,0 +1,39 @@
+<%- include('../partials/head.ejs') %>
+
+<body>
+
+
+<%- include('../partials/navbar.ejs') %>
+    
+    <center>
+        <form action="/login" class="form" method="POST">
+            <div class="login">
+                <label for="username" class="text-info">Username:</label><br>
+                <input type="text" name="username" id="username" class="form-control">
+            </div>
+            <div class="form-group login">
+                <label for="password" class="text-info">Password:</label><br>
+                <input type="text" name="password" id="password" class="form-control">
+            </div>
+            <div class="form-group login">
+
+                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+            </div>
+            <div id="register-link">
+
+            </div>
+        </form>
+    </center>
+
+
+
+
+
+
+<%- include('../partials/footer.ejs') %>
+
+</body>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</html>
