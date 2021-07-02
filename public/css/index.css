@@ -73,3 +73,8 @@ button:hover {
 .form{
     margin-top: 3%;
 }
+
+.pgdetails {
+    width: 80%;
+    margin: 3% auto;
+}

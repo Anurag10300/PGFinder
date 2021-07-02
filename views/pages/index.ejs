@@ -1,17 +1,31 @@
-<%- include('../partials/head.ejs') %>
+<%- include('../partials/head') %>
 
 <body>
 
 
-<%- include('../partials/navbar.ejs') %>
+<%- include('../partials/navbar') %>
 
     <form  action="/" method="POST">
         <button class="btn btn-light btn-lg btn-block addPG"> Add New...</button>
     </form>
 
 
+    <% for(var i=0  ; i< Usert.length ; i++){ %>
+        <div class="container pgs">
+            <p>Name: <%= Usert[i].ownerName %> </p>
+        </div>
+   <% } %>
+
+
+
+
+
+
+
+
+
  
-<%- include('../partials/footer.ejs') %>
+<%- include('../partials/footer') %>
     
 </body>
 
