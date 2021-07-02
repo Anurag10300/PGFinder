@@ -79,12 +79,11 @@ app.get("/signup", (req, res) => {
 
 //});
 
-app.get("/", function (req, res) {   
+app.get("/", requiresAuth(), function (req, res) {   
   User.find(function (err, data) {
       if (err) {
           console.log(err);
       } else {
-          console.log(data);
           res.render('pages/index',{Usert:data});
       }
   });
