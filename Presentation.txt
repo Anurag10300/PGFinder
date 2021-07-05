@@ -1,0 +1,39 @@
+
+
+
+
+
+
+REVIT - Find PG
+
+Team Members - 
+
+Anurag Panwar 6th-A CSE
+Akash Singh   6th-A CSE
+Akash Dixit   6th-A CSE
+Ankit Yadav   3rd-A CS  
+
+Problem - 
+
+
+
+
+
+Resources Used - 
+
+Front End - 
+HTMl , CSS , JS, Ejs
+
+Backend - 
+Node.js Express.js Mongoose
+
+Authentication- 
+auth0
+
+Database- 
+
+AWS , Mongodb atlas.
+
+
+
+

@@ -1,8 +1,8 @@
 {
-  "name": "revit",
+  "name": "Revit - PG",
   "version": "1.0.0",
-  "description": "Revit is an online review platform.",
-  "main": "script.js",
+  "description": "Find PG's in Muradnagar",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -16,6 +16,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-openid-connect": "^2.4.0",
+    "font-awesome": "^4.7.0",
     "mongodb": "^3.6.9",
     "mongoose": "^5.13.0",
     "mysql": "^2.18.1"

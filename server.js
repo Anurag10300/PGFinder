@@ -10,6 +10,7 @@ const express = require("express");
 const ejs = require('ejs');
 
 const app  = express();
+const fs = require("fs");
 
 const { requiresAuth } = require('express-openid-connect');
 const { auth } = require('express-openid-connect');
@@ -44,6 +45,7 @@ app.post('/newPG' , async function(req,res){
   user.kitchen = req.body.kitchen;
   user.mess = req.body.mess;
   user.rent = req.body.rent;
+  user.description = req.body.description;
 
 
   user.save(function(err) {

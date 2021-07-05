@@ -17,7 +17,8 @@ var userSchema = new mongoose.Schema({
     rooms: {type: Number},
     kitchen: {type:String},
     mess : {type: String},
-    rent : {type : Number}
+    rent : {type : Number},
+    description : {type : String}
 }
 );
 

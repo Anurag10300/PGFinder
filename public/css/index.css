@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;800&display=swap');
 
+
+@import url('../node_modules/font-awesome/css/font-awesome.min.css');
 * {
     box-sizing: border-box;
     margin: 0%;
@@ -9,7 +12,9 @@
 
 .nav {
     background-color: #24252A;
-    font-size: 2rem;
+    font-family: "Dosis", sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
 }
 
 
@@ -29,8 +34,9 @@ ul,
 a {
     display: inline-block;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-family: "Dosis", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
     color: #edf0f1;
 }
 
@@ -50,12 +56,17 @@ button:hover {
 }
 
 .addPG {
-    font-weight: bold;
-    margin: 1% 0;
-    padding: 1% 0;
+    
+   font-size: 2.5em;
+    margin: auto; 
+    margin-top: 8%;
+    margin-bottom: 2%;
     border: dotted 5px white;
     outline: none;
-
+    height: 10%;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    width: 90%;
 }
 
 .addPG:active,
@@ -78,3 +89,55 @@ button:hover {
     width: 80%;
     margin: 3% auto;
 }
+
+.jumbotron {
+    width: 90%;
+    border: dashed 5px black;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+.footer {
+    background-color: white;
+    
+    height: 5%;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    margin-bottom: 2%;
+    padding-bottom: 0;
+}
+
+.header {
+    overflow: hidden;
+    background-color:#24252A;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index:1; /*Add this*/
+  }
+
+
+  .lead {
+      padding: 2% 2%;
+  }
+
+  h1 {
+    font-family: "Dosis", sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+
+  p {
+    font-family: "Dosis", sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
+  }
+
+  .pgdetails{
+      margin-top: 12%;
+      font-family: "Dosis", sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+
