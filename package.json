@@ -1,5 +1,5 @@
 {
-  "name": "Revit - PG",
+  "name": "Revit",
   "version": "1.0.0",
   "description": "Find PG's in Muradnagar",
   "main": "server.js",
