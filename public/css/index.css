@@ -104,7 +104,7 @@ button:hover {
     width: 100%;
     text-align: center;
     z-index: 1;
-    margin-bottom: 2%;
+
     padding-bottom: 0;
 }
 
@@ -145,6 +145,7 @@ button:hover {
   .linkd {
       z-index: 2;
       color: #24252A;
-      align-self: center;
+      text-align: center;
+      margin: auto;
   }
 
