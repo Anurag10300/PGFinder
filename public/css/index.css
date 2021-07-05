@@ -144,5 +144,7 @@ button:hover {
 
   .linkd {
       z-index: 2;
+      color: #24252A;
+      align-self: center;
   }
 
