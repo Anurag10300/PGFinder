@@ -146,6 +146,7 @@ button:hover {
       z-index: 2;
       color: #24252A;
       text-align: center;
-      margin: auto;
+      margin: 0 auto;
+      align-self: center;
   }
 
