@@ -141,3 +141,8 @@ button:hover {
     font-size: 1.5em;
   }
 
+
+  .linkd {
+      z-index: 2;
+  }
+
