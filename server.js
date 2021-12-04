@@ -112,6 +112,10 @@ app.get('/login/callback' , requiresAuth(), function(req,res){
     return res.redirect('/');
 });
 
+app.get('/callback' , requiresAuth(), function(req,res){
+  return res.redirect('/');
+});
+
 app.get("/profile", requiresAuth(), (req, res) => {
   res.render("profile", {
     user: req.oidc.user,
