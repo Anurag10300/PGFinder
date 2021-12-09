@@ -22,7 +22,7 @@ const config = {
     baseURL: process.env.BASE_URL,
     clientID: process.env.CLIENT_ID,
     issuerBaseURL: process.env.ISSUER_URL,
-    redirectUri: 'https://pg5.herokuapp.com/'
+    
   };
   
 connectDB();
