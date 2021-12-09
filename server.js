@@ -108,11 +108,11 @@ app.get('/newPG',requiresAuth(), function(req,res){
 });
 
 
-app.get('/login/callback' , requiresAuth(), function(req,res){
+app.get('/login/callback/' , requiresAuth(), function(req,res){
     return res.redirect('/');
 });
 
-app.get('/callback' , requiresAuth(), function(req,res){
+app.get('/callback/' , requiresAuth(), function(req,res){
   return res.redirect('/');
 });
 
