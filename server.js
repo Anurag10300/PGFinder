@@ -82,7 +82,7 @@ app.get("/signup", (req, res) => {
 
 //});
 
-app.get("/", requiresAuth(), function (req, res) {   
+app.get("/home", requiresAuth(), function (req, res) {   
   User.find(function (err, data) {
       if (err) {
           console.log(err);
@@ -96,10 +96,17 @@ app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
 
+app.get("/", function(req, res){
+  res.render('pages/slideshow');
+});
 
 // the ADD PG button redirects to new page
-app.post('/', function(req,res){
+app.post('/home', function(req,res){
     return res.redirect('/newPG');
+});
+
+app.post("/", function(req,res){
+  return res.redirect('/home');
 });
 
 
@@ -110,20 +117,20 @@ app.get('/newPG',requiresAuth(), function(req,res){
 
 
 app.get('/login/callback/' , requiresAuth(), function(req,res){
-    return res.redirect('/');
+    return res.redirect('/home');
 });
 
 
 app.get('/login/callback/' , requiresAuth(), function(req,res){
-  return res.redirect('/');
+  return res.redirect('/home');
 });
 
 app.get('/callback/' , requiresAuth(), function(req,res){
-  return res.redirect('/');
+  return res.redirect('/home');
 });
 
 app.get('/callback' , requiresAuth(), function(req,res){
-  return res.redirect('/');
+  return res.redirect('/home');
 });
 
 app.get("/profile", requiresAuth(), (req, res) => {
