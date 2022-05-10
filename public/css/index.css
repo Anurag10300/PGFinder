@@ -11,6 +11,10 @@
 
 }
 
+body{
+    background: #f2f1f0;
+}
+
 .nav {
     background-color: #24252A;
     font-family: "Dosis", sans-serif;
@@ -41,17 +45,34 @@ ul
     color: #edf0f1;
 }
 
+h1 {
+    
+    
+    display: inline-block;
+    font-size: 100px;
+    font-weight: 900;
+
+  }
+
+  h4 {
+    font-family: "Dosis", sans-serif;
+
+  }
 
 .gg {
-    margin-bottom: 2%;
+    margin-bottom: 4%;
+    border: solid 6px black;
 }
 
 a{
 
     display: inline-block;
     text-decoration: none;
+
     
-    font-weight: 200;
+    font-size: 0.5em;
+    
+    font-weight: 700;
     color: black;
     }
 
@@ -68,11 +89,11 @@ button:hover {
 }
 
 a.newpgnav {
-    color: #909090;
+    color: #f2f1f0 ;
 }
 
 a.newpgnav:visited {
-    color: #909090;
+    color: #f2f1f0;
 }
 
 
@@ -86,14 +107,15 @@ a.newpgnav:visited {
     
    font-size: 2.5em;
     margin: 0; 
-    margin-left: auto;
+    margin-left: 14%;
     margin-bottom: 2%;
-    border: dotted 5px white;
+    border: dotted 5px #f2f1f0;
     outline: none;
     height: 10%;
     font-family: "Dosis", sans-serif;
     font-weight: bold;
-    width: 100%;
+    width: 70%;
+    background: #f2f1f0 ;
 }
 
 .addPG:active,
@@ -149,12 +171,6 @@ a.newpgnav:visited {
       padding: 2% 2%;
   }
 
-  h1 {
-    
-    font-weight: 700;
-    font-size: 1.5em;
-    display: inline-block;
-  }
 
   p {
     font-family: "Dosis", sans-serif;
@@ -169,6 +185,7 @@ a.newpgnav:visited {
   .findpg{
       margin-left: 30%;
       margin-right: 30%;
+      margin-top: 50px;
   }
 
   .pgdetails{
@@ -191,5 +208,9 @@ a.newpgnav:visited {
     color: #909090;
   }
 
+  .logout {
+      margin-left: 85%;
+  }
 
  
+  

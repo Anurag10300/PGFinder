@@ -5,7 +5,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #5ff5de;
+  background: #fcd8a2;
 }
 
 h1{
@@ -22,7 +22,7 @@ hr{
 }
 
 #centre{
-  color: white;
+  color: black;
   margin-right: 50px;
   margin-bottom: 500px;
   text-align: center;
@@ -124,17 +124,17 @@ hr{
 }
 
 #radio1:checked ~ .navigation-auto .auto-btn1{
-  background: #40D3DC;
+  background: #fcd8a2;
 }
 
 #radio2:checked ~ .navigation-auto .auto-btn2{
-  background: #40D3DC;
+  background: #fcd8a2;
 }
 
 #radio3:checked ~ .navigation-auto .auto-btn3{
-  background: #40D3DC;
+  background: #fcd8a2;
 }
 
 #radio4:checked ~ .navigation-auto .auto-btn4{
-  background: #40D3DC;
+  background: #fcd8a2;
 }
