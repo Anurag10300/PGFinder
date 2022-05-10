@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 
 var userSchema = new mongoose.Schema({
+
+    pgName :{
+        type:String
+    },
     ownerName :{
         type:String
     },

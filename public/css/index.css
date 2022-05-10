@@ -3,6 +3,7 @@
 
 
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
+
 * {
     box-sizing: border-box;
     margin: 0%;
@@ -30,8 +31,8 @@
 }
 
 li,
-ul,
-a {
+ul
+ {
     display: inline-block;
     text-decoration: none;
     font-family: "Dosis", sans-serif;
@@ -40,12 +41,38 @@ a {
     color: #edf0f1;
 }
 
+
+.gg {
+    margin-bottom: 2%;
+}
+
+a{
+
+    display: inline-block;
+    text-decoration: none;
+    
+    font-weight: 200;
+    color: black;
+    }
+
+a:visited {
+    color: black;
+}
+
 a:hover,
 button:hover {
     color: #909090;
     text-decoration: none;
 
 
+}
+
+a.newpgnav {
+    color: #909090;
+}
+
+a.newpgnav:visited {
+    color: #909090;
 }
 
 
@@ -58,15 +85,15 @@ button:hover {
 .addPG {
     
    font-size: 2.5em;
-    margin: auto; 
-    margin-top: 8%;
+    margin: 0; 
+    margin-left: auto;
     margin-bottom: 2%;
     border: dotted 5px white;
     outline: none;
     height: 10%;
     font-family: "Dosis", sans-serif;
     font-weight: bold;
-    width: 90%;
+    width: 100%;
 }
 
 .addPG:active,
@@ -91,10 +118,10 @@ button:hover {
 }
 
 .jumbotron {
-    width: 90%;
-    border: dashed 5px black;
-    margin: auto;
-    margin-bottom: 5%;
+    
+    
+    margin: 0;
+    margin-bottom: 0;
 }
 
 .footer {
@@ -123,15 +150,25 @@ button:hover {
   }
 
   h1 {
-    font-family: "Dosis", sans-serif;
+    
     font-weight: 700;
     font-size: 1.5em;
+    display: inline-block;
   }
 
   p {
     font-family: "Dosis", sans-serif;
     font-weight: 600;
     font-size: 1.5em;
+  }
+
+  .home{
+      margin-left: 2%;
+  }
+
+  .findpg{
+      margin-left: 30%;
+      margin-right: 30%;
   }
 
   .pgdetails{
@@ -150,3 +187,9 @@ button:hover {
       align-self: center;
   }
 
+  .newpgnav {
+    color: #909090;
+  }
+
+
+ 

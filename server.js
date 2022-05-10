@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/newPG' , async function(req,res){
   
   var user = new User();
-
+  user.pgName = req.body.pgName;
   user.ownerName = req.body.owner;
   user.ownerNumber =req.body.pNumber;
   user.address1 = req.body.address1;
@@ -87,7 +87,7 @@ app.get("/", requiresAuth(), function (req, res) {
       if (err) {
           console.log(err);
       } else {
-          res.render('pages/index',{Usert:data});
+          res.render('pages/Findpg',{Usert:data});
       }
   });
   });
@@ -139,6 +139,10 @@ app.get('/authHome', requiresAuth(), function(req,res){
 
 app.listen(process.env.PORT || 3000,function(){
     console.log("Active at 3000");
+});
+
+app.get('/find', requiresAuth(), function(req,res){
+  res.render('pages/Findpg');
 });
 
 
