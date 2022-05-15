@@ -96,6 +96,11 @@ app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
 
+
+app.get('/search', function(req,res){
+    res.render('pages/search');
+});
+
 app.get("/", function(req, res){
   res.render('pages/slideshow');
 });
@@ -103,6 +108,30 @@ app.get("/", function(req, res){
 // the ADD PG button redirects to new page
 app.post('/home', function(req,res){
     return res.redirect('/newPG');
+});
+
+app.post('/search', function(req,res){
+    return res.redirect('/searchResults');
+});
+
+app.get("/searchResults" , function(req,res){
+  const name = req.query.pgName;
+  const address = req.query.address1;
+  const rooms  = req.query.rooms;
+  const kitchen = req.query.kitchen;
+  const mess = req.query.mess;
+  const rent = req.query.rent;
+  //console.log(name,address,rooms,kitchen,mess,rent);
+
+  User.find(function (err, data) {
+    if (err) {
+        console.log(err);
+    } else {
+        res.render('pages/SearchResults', {Usert:data,name:name,address:address,rooms:rooms,kitchen:kitchen,mess:mess,rent:rent});
+    }
+});
+
+  
 });
 
 app.post("/", function(req,res){

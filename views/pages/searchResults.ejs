@@ -60,14 +60,18 @@
       <div class="row justify-content-around">
 
         <% for(var i=Usert.length-1  ; i>=0 ; i--){ %>
-      
-        <div class="col-lg-4">
-          <div class="card gg" style="width: 24rem;">
-            <img src="https://images.unsplash.com/photo-1651488402810-d15203c56df3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=807&q=80" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h4 class="card-title">
 
-                PG Name : <%= Usert[i].pgName %>
+        <%  if((Usert[i].pgName == name) && (Usert[i].rooms >= rooms) && (Usert[i].mess == mess) && (Usert[i].rent <= rent) && ((Usert[i].address1 == address) || (Usert[i].address2 == address))) { %>
+        
+
+
+             <div class="col-lg-4">
+             <div class="card gg" style="width: 24rem;">
+                <img src="https://images.unsplash.com/photo-1651488402810-d15203c56df3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=807&q=80" class="card-img-top" alt="...">
+                 <div class="card-body">
+                    <h4 class="card-title">
+
+                PG Name : <%= Usert[i].pgName  %>
                 </h4>
                 <h4 class="card-title">
 
@@ -99,6 +103,10 @@
              <!--<a href="#" class="btn btn-primary">Expand</a>-->
           </div>
         </div>
+
+
+        <% }  %>
+       
         <% } %>
 	
     
