@@ -97,8 +97,8 @@ app.get('/profile', requiresAuth(), (req, res) => {
 });
 
 
-app.get('/search', function(req,res){
-    res.render('pages/search');
+app.get('/searchFilter', function(req,res){
+    res.render('pages/searchFilter');
 });
 
 app.get("/", function(req, res){
@@ -110,7 +110,28 @@ app.post('/home', function(req,res){
     return res.redirect('/newPG');
 });
 
-app.post('/search', function(req,res){
+app.get('/search', async (req,res)=>{
+    var key = req.query.key;
+    
+    let data = await User.find(
+      {
+        "$or":[
+          {"pgName":{$regex:key}},
+          {"ownerName":{$regex:key}},
+          {"address1":{$regex:key}},
+          {"address2":{$regex:key}},
+          {"description":{$regex:key}}
+          
+        ]
+      }
+    )
+    //res.send(data);
+    res.render('pages/Findpg',{Usert:data});
+    
+
+});
+
+app.post('/searchFilter', function(req,res){
     return res.redirect('/searchResults');
 });
 

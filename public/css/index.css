@@ -212,5 +212,16 @@ a.newpgnav:visited {
       margin-left: 85%;
   }
 
+
+  .btn {
+      margin-top: 1%;
+  }
+  .btn1 {
+      margin: auto 0;
+  }
+
+  .inp {
+      margin: 0;
+  }
  
   
