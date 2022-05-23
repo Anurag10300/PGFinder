@@ -57,7 +57,7 @@
 
     <div class="search">
       <form align="center" action="/search" method="GET">
-        <input type="text" class="inp" name="key">
+        <input type="text" class="inp" name="key" placeholder="Search in all fields...">
         <button type="submit" class="btn btn-dark btn1">Search</button>
       </form>
     </div>
@@ -115,7 +115,14 @@
 
 
           </div>
-          <!--<a href="#" class="btn btn-primary">Expand</a>-->
+          <% if(Usert[i].nickName == nick){ %>
+          <form action="/delete/<%= Usert[i]._id %> " method="post"> 
+            <button type="submit" class="btn btn-primary delete">Delete</button>
+          </form>
+
+
+          <% } %>
+
         </div>
       </div>
       <% } %>
@@ -125,6 +132,8 @@
 
     </div>
   </div>
+
+
 </body>
 
 </html>

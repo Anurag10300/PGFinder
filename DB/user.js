@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 
 var userSchema = new mongoose.Schema({
 
+    nickName:{
+        type:String
+    },
     pgName :{
         type:String
     },

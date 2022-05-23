@@ -204,6 +204,11 @@ a.newpgnav:visited {
       align-self: center;
   }
 
+  .delete {
+      display: block;
+      margin: auto ;
+  }
+
   .newpgnav {
     color: #909090;
   }

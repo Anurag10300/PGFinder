@@ -3,6 +3,7 @@ require('dotenv').config();
 var bodyParser = require('body-parser');
 
 
+
 const connectDB = require("./DB/connection");
 const User =  require("./DB/user"); 
 
@@ -14,6 +15,8 @@ const fs = require("fs");
 
 const { requiresAuth } = require('express-openid-connect');
 const { auth } = require('express-openid-connect');
+
+var objectId = require('mongodb').ObjectID;
 
 const config = {
     authRequired: false,
@@ -34,9 +37,16 @@ app.use(express.static(__dirname+'/public'));
 //app.use('/newPG', require('./api/user.js'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+let nickName1;
+
 app.post('/newPG' , async function(req,res){
+
+  
+  
   
   var user = new User();
+
+  user.nickName = nickName1;
   user.pgName = req.body.pgName;
   user.ownerName = req.body.owner;
   user.ownerNumber =req.body.pNumber;
@@ -47,6 +57,7 @@ app.post('/newPG' , async function(req,res){
   user.mess = req.body.mess;
   user.rent = req.body.rent;
   user.description = req.body.description;
+  
 
 
   user.save(function(err) {
@@ -87,9 +98,11 @@ app.get("/home", requiresAuth(), function (req, res) {
       if (err) {
           console.log(err);
       } else {
-          res.render('pages/Findpg',{Usert:data});
+          res.render('pages/Findpg',{Usert:data , nick : req.oidc.user.nickname});
       }
   });
+  nickName1 = req.oidc.user.nickname;
+  
   });
 
 app.get('/profile', requiresAuth(), (req, res) => {
@@ -148,7 +161,8 @@ app.get("/searchResults" , function(req,res){
     if (err) {
         console.log(err);
     } else {
-        res.render('pages/SearchResults', {Usert:data,name:name,address:address,rooms:rooms,kitchen:kitchen,mess:mess,rent:rent});
+        let nick = req.oidc.user.nickname;
+        res.render('pages/SearchResults', {Usert:data,name:name,address:address,rooms:rooms,kitchen:kitchen,mess:mess,rent:rent,nick:nick});
     }
 });
 
@@ -157,12 +171,14 @@ app.get("/searchResults" , function(req,res){
 
 app.post("/", function(req,res){
   return res.redirect('/home');
+  
 });
 
 
 //for newPG page
 app.get('/newPG',requiresAuth(), function(req,res){
     res.render('pages/newPG.ejs');
+    
 });
 
 
@@ -202,4 +218,9 @@ app.get('/find', requiresAuth(), function(req,res){
   res.render('pages/Findpg');
 });
 
+app.post('/delete/:id', async (req, res) => {
+  await User.deleteOne({_id: req.params.id})
+  
+  return res.redirect('/')
+});
 
