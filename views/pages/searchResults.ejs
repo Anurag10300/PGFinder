@@ -45,8 +45,15 @@
   
   <h1 class="display-3 findpg "> FINDPG</h1>
   <p class="lead k"></p>
-  <form align="center" action="/search" method="GET">
-    <button type="submit" class="btn btn-outline-dark">Search Options</button>
+  <div class="search">
+    <form align="center" action="/search" method="GET">
+      <input type="text" class="inp" name="key" placeholder="Search in all fields...">
+      <button type="submit" class="btn btn-dark btn1">Search</button>
+    </form>
+  </div>
+
+  <form align="center" action="/searchFilter" method="GET">
+    <button type="submit" class="btn btn-dark">Search Options</button>
   </form>
 </div>  
 
@@ -61,7 +68,7 @@
 
         <% for(var i=Usert.length-1  ; i>=0 ; i--){ %>
 
-        <%  if((Usert[i].pgName == name) && (Usert[i].rooms >= rooms) && (Usert[i].mess == mess) && (Usert[i].rent <= rent) && ((Usert[i].address1 == address) || (Usert[i].address2 == address))) { %>
+        <%  if((Usert[i].rooms >= rooms) && (Usert[i].mess == mess) && (Usert[i].rent <= rent) && (Usert[i].address == address)) { %>
         
 
 
@@ -95,12 +102,12 @@
                           </h4>
                           <h4 class="card-title">
 
-                            Address : <%= Usert[i].address1 %>
+                            Address : <%= Usert[i].address %>
                               </h4>
                 
             
              </div>
-             <!--<a href="#" class="btn btn-primary">Expand</a>-->
+             
           </div>
         </div>
 

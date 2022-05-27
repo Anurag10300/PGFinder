@@ -106,11 +106,15 @@
             </h4>
             <h4 class="card-title">
 
+              Kitchen Present : <%= Usert[i].kitchen %>
+            </h4>
+            <h4 class="card-title">
+
               Monthly Rent : <%= Usert[i].rent %>
             </h4>
             <h4 class="card-title">
 
-              Address : <%= Usert[i].address1 %>
+              Address : <%= Usert[i].address %>
             </h4>
 
 
@@ -120,7 +124,7 @@
             <button type="submit" class="btn btn-primary delete">Delete</button>
           </form>
 
-          <form action="/update" method="post"> 
+          <form action="/update/<%= Usert[i]._id %>" method="post"> 
             <button type="submit" class="btn btn-primary update">Update</button>
           </form>
           

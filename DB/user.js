@@ -15,10 +15,7 @@ var userSchema = new mongoose.Schema({
     ownerNumber : {
         type:Number
     } ,
-    address1: {
-        type:String
-    },
-    address2: {
+    address: {
         type:String
     },
     rooms: {type: Number},

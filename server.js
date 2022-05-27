@@ -38,6 +38,7 @@ app.use(express.static(__dirname+'/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 let nickName1;
+let idd;
 
 app.post('/newPG' , async function(req,res){
 
@@ -50,8 +51,7 @@ app.post('/newPG' , async function(req,res){
   user.pgName = req.body.pgName;
   user.ownerName = req.body.owner;
   user.ownerNumber =req.body.pNumber;
-  user.address1 = req.body.address1;
-  user.address2 = req.body.address2;
+  user.address = req.body.address;
   user.rooms = req.body.rooms;
   user.kitchen = req.body.kitchen;
   user.mess = req.body.mess;
@@ -131,15 +131,15 @@ app.get('/search', async (req,res)=>{
         "$or":[
           {"pgName":{$regex:key}},
           {"ownerName":{$regex:key}},
-          {"address1":{$regex:key}},
-          {"address2":{$regex:key}},
+          {"address":{$regex:key}},
+          
           {"description":{$regex:key}}
           
         ]
       }
     )
     //res.send(data);
-    res.render('pages/Findpg',{Usert:data});
+    res.render('pages/Findpg',{Usert:data,nick : req.oidc.user.nickname});
     
 
 });
@@ -150,7 +150,7 @@ app.post('/searchFilter', function(req,res){
 
 app.get("/searchResults" , function(req,res){
   const name = req.query.pgName;
-  const address = req.query.address1;
+  const address = req.query.address;
   const rooms  = req.query.rooms;
   const kitchen = req.query.kitchen;
   const mess = req.query.mess;
@@ -220,16 +220,61 @@ app.get('/find', requiresAuth(), function(req,res){
 
 app.post('/delete/:id', async (req, res) => {
   await User.deleteOne({_id: req.params.id})
+  idd = req.params.id;
   
   return res.redirect('/home')
 });
 
-app.post('/expand/:id' , (req,res) => {
-  res.send('Expanded');
+app.post('/expand/:id' , async (req,res) => {
+
+   //data = await User.find({_id : req.params.id});
+
+   User.find( {_id : req.params.id} , function (err, data) {
+    if (err) {
+        console.log(err);
+    } else {
+        res.render('pages/expand', {Usert:data});
+    }
+});
+   
+  
 });
 
 
-app.post('/update',requiresAuth(), function(req,res){
+app.post('/update/:id',requiresAuth(), function(req,res){
+
+  idd = req.params.id;
+
   res.render('pages/updateForm.ejs');
   
+});
+
+app.post('/updateData', (req,res) =>{
+
+
+  
+  
+
+  User.updateOne({"_id": idd}, {$set:{
+
+    "pgName": req.body.pgName,
+    "ownerName": req.body.owner,
+    "ownerNumber": req.body.pNumber,
+    "address": req.body.address,
+    "rooms": req.body.rooms,
+    "kitchen": req.body.kitchen,
+    "mess": req.body.mess,
+    "rent": req.body.rent,
+    "description": req.body.description
+
+  }}, function(err, result){ 
+    if (err) { 
+        console.log('Error updating object: ' + err); 
+        res.send({'error':'An error has occurred'}); 
+    } else { 
+        console.log('' + result + ' document(s) updated'); 
+        res.redirect('/home'); 
+    } 
+}); 
+
 });
