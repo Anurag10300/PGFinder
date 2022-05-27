@@ -64,7 +64,7 @@ app.post('/newPG' , async function(req,res){
     if (err) return next(err);
   });
 
-  return res.redirect('/');
+  return res.redirect('/home');
 
 
 
@@ -221,6 +221,15 @@ app.get('/find', requiresAuth(), function(req,res){
 app.post('/delete/:id', async (req, res) => {
   await User.deleteOne({_id: req.params.id})
   
-  return res.redirect('/')
+  return res.redirect('/home')
 });
 
+app.post('/expand/:id' , (req,res) => {
+  res.send('Expanded');
+});
+
+
+app.post('/update',requiresAuth(), function(req,res){
+  res.render('pages/updateForm.ejs');
+  
+});

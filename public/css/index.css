@@ -204,10 +204,11 @@ a.newpgnav:visited {
       align-self: center;
   }
 
-  .delete {
+  .delete, .update{
       display: block;
       margin: auto ;
   }
+  
 
   .newpgnav {
     color: #909090;
@@ -230,3 +231,12 @@ a.newpgnav:visited {
   }
  
   
+.delete,.update,.expand{
+    width: 100%;
+}
+
+
+.en1 { transition: all .2s ease-in-out; }
+.en1:hover {
+    transform: scale(1.1);
+}
