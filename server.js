@@ -6,12 +6,15 @@ var bodyParser = require('body-parser');
 
 const connectDB = require("./DB/connection");
 const User =  require("./DB/user"); 
+const imgModel = require("./DB/image");
+var fs = require('fs');
+var path = require('path');
 
 const express = require("express");
 const ejs = require('ejs');
 
 const app  = express();
-const fs = require("fs");
+
 
 const { requiresAuth } = require('express-openid-connect');
 const { auth } = require('express-openid-connect');
@@ -37,10 +40,24 @@ app.use(express.static(__dirname+'/public'));
 //app.use('/newPG', require('./api/user.js'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+var multer = require('multer');
+  
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now())
+    }
+});
+  
+var upload = multer({ storage: storage });
+
 let nickName1;
 let idd;
+let imageId;
 
-app.post('/newPG' , async function(req,res){
+app.post('/newPG' ,  async function(req,res){
 
   
   
@@ -64,10 +81,46 @@ app.post('/newPG' , async function(req,res){
     if (err) return next(err);
   });
 
-  return res.redirect('/home');
+ let data =  await User.findOne({pgName:req.body.pgName});
+ var id1 = data._id;
+ 
+ console.log(id1);
+
+ //return res.redirect('/home');
+
+  return res.redirect('/image/'+id1);
 
 
 
+});
+
+app.get('/image/:id' , (req,res) =>{
+    //var id1 = req.params.id;
+    imageId = req.params.id;
+    
+    res.render('pages/image',{id:imageId});
+});
+
+app.post('/image/:id' , upload.single('image'), (req, res, next) => {
+
+  
+  
+  var obj = {
+      id : req.params.id,
+      img: {
+          data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+          contentType: 'image/png'
+      }
+  }
+  imgModel.create(obj, (err, item) => {
+      if (err) {
+          console.log(err);
+      }
+      else {
+          // item.save();
+          res.redirect('/home');
+      }
+  });
 });
 
 
@@ -93,17 +146,41 @@ app.get("/signup", (req, res) => {
 
 //});
 
-app.get("/home", requiresAuth(), function (req, res) {   
-  User.find(function (err, data) {
-      if (err) {
-          console.log(err);
-      } else {
-          res.render('pages/Findpg',{Usert:data , nick : req.oidc.user.nickname});
-      }
-  });
+app.get("/home", requiresAuth(), async function (req, res) {  
+  
+  let imgdata = await imgModel.find();
+  let data = await User.find();
+  
+  res.render('pages/Findpg',{Usert:data , nick : req.oidc.user.nickname , items : imgdata });
+
+
+ // User.find(function (err, data) {
+ //     if (err) {
+  //        console.log(err);
+  //    } else {
+   //       res.render('pages/Findpg',{Usert:data , nick : req.oidc.user.nickname , });
+   //   }
+ // });
+
+
+
   nickName1 = req.oidc.user.nickname;
   
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
@@ -229,13 +306,15 @@ app.post('/expand/:id' , async (req,res) => {
 
    //data = await User.find({_id : req.params.id});
 
-   User.find( {_id : req.params.id} , function (err, data) {
-    if (err) {
-        console.log(err);
-    } else {
-        res.render('pages/expand', {Usert:data});
-    }
-});
+   let data = await User.findOne( {_id : req.params.id});
+   let imgdata = await imgModel.findOne({id : req.params.id});
+
+   console.log(data);
+
+    
+    
+        res.render('pages/expand', {Usert:data , items:imgdata});
+    
    
   
 });

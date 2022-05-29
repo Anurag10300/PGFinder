@@ -5,13 +5,19 @@
 		<div class="row">
         <div class="col-md-3">
             <p>View <strong>PG</strong> location by clicking on map below</p>
-            <a href="#"> <img style="height:500px; width:100%" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" onclick='window.open("https://www.google.com/maps/place/<%= Usert[0].address %>");return false;'></a>
+            <a href="#"> <img style="height:500px; width:100%" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" onclick='window.open("https://www.google.com/maps/place/<%= Usert.address %>");return false;'></a>
 	    </div>
     
 <!-- ============================Camp Card=============================== -->		
  <div class="col-md-9">
    <div class="card mb-3">
-     <img class="card-img-top" src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80">
+    
+      
+         <img src="data:image/<%=items.img.contentType%>;base64,
+                <%=items.img.data.toString('base64')%>">
+                
+      
+     
       <div class="card-body">
         <p class="float-right">
           <strong>$ price</strong>
@@ -24,7 +30,7 @@
 		  </div>
        
 		 <p class="float-right">
-          <em>~ Submitted by :  <strong><%= Usert[0].address1 %></strong></em>
+          <em>~ Submitted by :  <strong><%= Usert.address %></strong></em>
         </p> 
     
       </div>
