@@ -309,7 +309,7 @@ app.post('/expand/:id' , async (req,res) => {
    let data = await User.findOne( {_id : req.params.id});
    let imgdata = await imgModel.findOne({id : req.params.id});
 
-   console.log(data);
+   
 
     
     
