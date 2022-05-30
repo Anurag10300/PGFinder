@@ -19,18 +19,21 @@
       
      
       <div class="card-body">
-        <p class="float-right">
-          <strong>$ price</strong>
+        <p>
+          
+          <span style="text-align: left;"><strong>Contact No. : <%= Usert.ownerNumber %> </strong></span>
+          <span style="text-align: right; padding-left: 500px;"><strong>Rent : <%= Usert.rent %>/- per month</strong></span>
         </p>
-         <h2 class="card-title">PG name</h2>
-		  
+        
+         <h2><%=Usert.pgName%></h2>
+		  <p> <strong>Available rooms : <%= Usert.rooms %></strong></p>
         <hr>
 		  <div>
-			   <p class="card-text"> PG description </p>
+			   <p> <%= Usert.description%> </p>
 		  </div>
        
 		 <p class="float-right">
-          <em>~ Submitted by :  <strong><%= Usert.address %></strong></em>
+          <em>~ Submitted by :  <strong><%= Usert.ownerName %></strong></em>
         </p> 
     
       </div>

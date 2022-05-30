@@ -238,5 +238,5 @@ a.newpgnav:visited {
 
 .en1 { transition: all .2s ease-in-out; }
 .en1:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }

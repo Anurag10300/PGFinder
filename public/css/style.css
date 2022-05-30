@@ -5,7 +5,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fcd8a2;
+  background: #c3f4f7;
 }
 
 h1{
@@ -124,17 +124,17 @@ hr{
 }
 
 #radio1:checked ~ .navigation-auto .auto-btn1{
-  background: #fcd8a2;
+  background: #c3f4f7;
 }
 
 #radio2:checked ~ .navigation-auto .auto-btn2{
-  background: #fcd8a2;
+  background: #c3f4f7;
 }
 
 #radio3:checked ~ .navigation-auto .auto-btn3{
-  background: #fcd8a2;
+  background: #c3f4f7;
 }
 
 #radio4:checked ~ .navigation-auto .auto-btn4{
-  background: #fcd8a2;
+  background: #c3f4f7;
 }
